@@ -2,9 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
-import { config } from "dotenv";
-
-config()
+require('dotenv').config();
 
 //Conexión con la base de datos
 
