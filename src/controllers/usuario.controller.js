@@ -11,7 +11,7 @@ const controller = {
             res.json(result);                
         } catch (error) {
             console.log("Error => ",error);
-            res.Status(500).send("Error al registrar");
+            res.Status(500);
         }
     },
     async login(req,res){
@@ -29,7 +29,7 @@ const controller = {
                 const token = jwt.sign(payload,SECRET_KEY,{expiresIn:TOKEN_EXPIRES});
                 res.json({"token":token});
             }else{
-                res.status(401).send("Credenciales incorrectas");
+                res.status(401);
             }
         }catch(err){
             console.log(err);
@@ -42,7 +42,7 @@ const controller = {
             res.json(result);
         } catch (error) {
             console.log("Error => ",error);
-            res.Status(500).send("Error al listar");
+            res.Status(500);
         }
     },
     async buscarPorId(req,res){
@@ -52,7 +52,7 @@ const controller = {
             res.json(result);
         } catch (error) {
             console.log("Error => ",error);
-            res.Status(500).send("Error al buscar usuario");
+            res.Status(500);
         }
     },
     async editar(req,res) {
@@ -63,7 +63,7 @@ const controller = {
             res.json(result);
         } catch (error) {
             console.log('Error : ',error);
-            res.Status(500).send('Error al editar');
+            res.Status(500);
         }
     },
     async eliminar(req,res) {
@@ -73,7 +73,7 @@ const controller = {
             res.json({mensaje:"Usuario eliminado"})
         } catch (error) {
             console.log("Error => ",error);
-            res.Status(500).send("Error al eliminar");
+            res.Status(500);
         }
     }
 }

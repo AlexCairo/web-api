@@ -43,7 +43,7 @@ const controller = {
             }
         } catch (err) {
             console.log("Error => ",err),
-            res.status(500).send("Error al listar productos");
+            res.status(500);
         }
     },
     async guardar(req,res){
@@ -75,12 +75,12 @@ const controller = {
                     res.json(result);
                 } catch (err){
                     console.log('Error => ',err);
-                    res.status(500).send('Error al guardar');
+                    res.status(500);
                 }
             }
         } catch (error) {
             console.log("Error => ",error);
-            res.status(500).send("Ocurrio un error al buscar el producto existente")
+            res.status(500);
         }
     },
     async detalle(req,res){
@@ -90,7 +90,7 @@ const controller = {
             res.json(result);
         }catch (err) {
             console.log("Error => ",err);
-            res.status(500).send("Error al buscar producto")
+            res.status(500);
         }
     },
     async editar(req,res){
@@ -113,7 +113,7 @@ const controller = {
             res.json(result);
         } catch (error) {
             console.log("Error => ",error);
-            res.status(500).Send("Error al editar producto");
+            res.status(500);
         }
     },
     async eliminar(req,res){

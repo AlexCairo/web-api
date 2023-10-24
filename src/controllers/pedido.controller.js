@@ -11,7 +11,7 @@ const controller = {
             res.json(result);
         } catch (error) {
             console.log("Error => ",error);
-            res.Status(500).send("Error al guardar pedido");
+            res.Status(500);
         }
     },
     async listar(req,res){
@@ -20,7 +20,7 @@ const controller = {
             res.json(result);
         } catch (error) {
             console.log("Error => ",error);
-            res.Status(500).send("Error al listar los pedidos")
+            res.Status(500);
         }
     },
     async detallePedido(req,res){
@@ -30,7 +30,7 @@ const controller = {
             res.json(result);
         } catch (error) {
             console.log("Error => ",error);
-            res.Status(500).send("Error al buscar pedido")
+            res.Status(500);
         }
     },
     async eliminarPedido(req,res){
@@ -40,7 +40,7 @@ const controller = {
             res.json({mensaje:"Pedido eliminado"})
         } catch (error) {
             console.log("Error =>", error);
-            res.Status(500).send("Error al eliminar pedido")
+            res.Status(500);
         }
     }
 }

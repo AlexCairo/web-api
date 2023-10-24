@@ -6,7 +6,7 @@ const controller = {
             res.json(result)
         }catch (err) {
             console.log('Error => ',err),
-            res.status(500).send('Error al listar');
+            res.status(500);
         }
     },
     async guardar(req,res){
@@ -18,7 +18,7 @@ const controller = {
             res.json(result);
         } catch (err) {
             console.log('Error => ',err);
-            res.status(500).send('Error al guardar');
+            res.status(500);
         }
     },
     async editar(req,res){
@@ -30,7 +30,7 @@ const controller = {
             res.json(result);
         }catch(err){
             console.log('Error =>',err)
-            res.status(500).send('Error al editar');
+            res.status(500);
         }
     },
     async buscarPorId(req,res){
@@ -40,7 +40,7 @@ const controller = {
             res.json(result);
         }catch (err){
             console.log('Error => ',err)
-            res.status(500).send('Error al buscar');
+            res.status(500);
         }
     },
     async eliminar(req,res){
@@ -50,7 +50,7 @@ const controller = {
             res.json({"mensaje":"Elemento eliminado"})
         }catch (err){
             console.log('Error => ',err);
-            res.status(500).send('Error al eliminar');
+            res.status(500);
         }
     }
 }
