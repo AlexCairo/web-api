@@ -42,8 +42,8 @@ const controller = {
                 }
             }
         } catch (err) {
-            console.log("Error => ",err),
-            res.status(500);
+            console.log("Error => ", err);
+            res.status(500).json({ error: "Ocurrió un error interno." });
         }
     },
     async guardar(req,res){
