@@ -43,7 +43,7 @@ const controller = {
             }
         } catch (err) {
             console.log("Error => ", err);
-            res.sendStatus(500);
+            res.status(500).json({ error: "Ocurrió un error interno." });
         }
     },
     async guardar(req,res){
@@ -80,7 +80,7 @@ const controller = {
             }
         } catch (error) {
             console.log("Error => ",error);
-            res.sendStatus(500);
+            res.status(500);
         }
     },
     async detalle(req,res){
@@ -90,7 +90,7 @@ const controller = {
             res.json(result);
         }catch (err) {
             console.log("Error => ",err);
-            res.sendStatus(500);
+            res.status(500);
         }
     },
     async editar(req,res){
@@ -113,7 +113,7 @@ const controller = {
             res.json(result);
         } catch (error) {
             console.log("Error => ",error);
-            res.sendStatus(500);
+            res.status(500);
         }
     },
     async eliminar(req,res){
