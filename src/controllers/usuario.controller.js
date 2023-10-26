@@ -16,8 +16,8 @@ const controller = {
     },
     async login(req,res){
         const {email, password} = req.body;
+        const cliente = {email,password};
         try{
-            const cliente = {email,password};
             const result = await usuarioModel.findOne(cliente);
             if(result){
                 const payload = { 
@@ -28,12 +28,11 @@ const controller = {
                 }
                 const token = jwt.sign(payload,SECRET_KEY,{expiresIn:TOKEN_EXPIRES});
                 res.json({"token":token});
-            }else{
-                res.status(401);
+            } else {
+                throw new Error;
             }
-        }catch(err){
-            console.log(err);
-            res.status(500)
+        } catch(err){
+            res.status(500).json({error: "Internal server error"});
         }
     },
     async listar(req,res) {
