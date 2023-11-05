@@ -14,6 +14,14 @@ router.post('/guardar',(req,res)=> {
     controller.guardar(req,res);
 });
 
+router.get('/capture-order/:orderId', (req,res) => {
+    controller.captureOrder(req,res);
+})
+
+router.get('/cancel-order/:orderId', (req,res) => {
+    controller.cancelOrder(req,res);
+})
+
 router.delete('/eliminar/:id',(req,res)=>{
     controller.eliminarPedido(req,res);
 });

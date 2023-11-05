@@ -8,8 +8,8 @@ const pedidoSchema = new Schema({
         nombreProducto : {type:String, required:true},
         precioProducto : {type:Number, required:true},
         cantidad : {type:Number, required:true},
-        subtotal : Number
     }],
+    total : {type:Number},
     estadoPedido : {type:String, default: 'S'} // S : sin pagar || E : en proceso || P : pagado || A : anulado 
 },{versionKey:0});
 
