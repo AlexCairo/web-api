@@ -5,15 +5,15 @@ const router = express.Router();
 router.get('/listar',(req,res) => {
     controller.listar(req,res);
 });
-
+router.get('/pedidoPorId/:id', (req,res) => {
+    controller.pedidoPorCliente(req,res);
+});
 router.get('/detalle/:id',(req,res) => {
     controller.detallePedido(req,res);
 });
-
 router.post('/guardar',(req,res)=> {
     controller.guardar(req,res);
 });
-
 router.get('/capture-order/:orderId', (req,res) => {
     controller.captureOrder(req,res);
 })

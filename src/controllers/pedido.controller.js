@@ -1,3 +1,4 @@
+const { default: mongoose } = require('mongoose');
 const pedidoModel = require('../models/pedido.model');
 require('dotenv').config();
 const axios = require("axios");
@@ -103,6 +104,20 @@ const controller = {
         } catch (error) {
             console.log("Error => ",error);
             res.Status(500);
+        }
+    },
+    async pedidoPorCliente(req,res){
+        const {id} = req.params;            
+        const newId = new mongoose.Types.ObjectId(id);
+        try{
+            const result = await pedidoModel.aggregate([
+                { $match : {
+                    'clienteId' : newId,
+                }},
+            ])
+            res.json(result);
+        } catch (e) {
+            console.error(e);
         }
     },
     async eliminarPedido(req,res){

@@ -1,8 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const app = express();
+const { createServer } = require('node:http') 
+const { Server } = require("socket.io");
 require('dotenv').config();
+
+const app = express();
+const httpServer = createServer(app);
+const io = new Server(httpServer,{
+    cors:{
+        origin: process.env.FRONT_END_URL
+    }
+}); 
 
 //Conexión con la base de datos
 
@@ -30,6 +39,13 @@ app.use(auth);
 
 app.use('/api/categorias',categoriaRutas);
 
-app.listen(3002, () => {
+io.on('connection', (socket) => {
+
+    socket.on('purchaseCompleted', (msg) => {
+        io.emit('purchaseCompleted', msg);
+    })
+})
+
+httpServer.listen(3002, () => {
     console.log('Server on port 3002');
 })
