@@ -42,7 +42,7 @@ app.use('/api/categorias',categoriaRutas);
 
 io.on('connection', (socket) => {
     socket.on('purchaseCompleted', (msg) => {
-        socket.broadcast.emit('purchaseCompletedMsg', msg);
+        io.emit('purchaseCompletedMsg', msg);
     })
 })
 
