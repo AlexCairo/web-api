@@ -41,6 +41,8 @@ app.use('/api/categorias',categoriaRutas);
 
 io.on('connection', (socket) => {
 
+    console.log("user connected");
+
     socket.on('purchaseCompleted', (msg) => {
         socket.broadcast.emit('purchaseCompleted', msg);
     })
