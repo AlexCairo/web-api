@@ -9,7 +9,7 @@ const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer,{
     cors:{
-        origin: process.env.FRONT_END_URL
+        origin : '*'
     }
 }); 
 
@@ -40,9 +40,6 @@ app.use(auth);
 app.use('/api/categorias',categoriaRutas);
 
 io.on('connection', (socket) => {
-
-    console.log("user connected");
-
     socket.on('purchaseCompleted', (msg) => {
         socket.broadcast.emit('purchaseCompleted', msg);
     })
